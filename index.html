@@ -10,6 +10,31 @@
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/style.css" />
         <title>momolette | Home & Baby organization - Live simply.</title>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+          $("document").ready(function(){
+              $(".btn-info").click(cart);       
+              $(window).scroll(function(){
+                  var scrollHeight = $(document).scrollTop();
+                  if (scrollHeight > 200){
+                      $(".top").css("display","grid");
+                  }
+                  else if (scrollHeight <= 200){
+                      $(".top").css("display","none");
+                  }
+              });
+
+              var cartnum = 0;
+              function cart(){
+                cartnum ++;
+                document.getElementById("addcart").innerHTML = cartnum;
+                $("html, body").animate({scrollTop: 0}, 1000);
+              };
+          });
+
+          
+      </script>
       </head>
 
       <body>
@@ -54,7 +79,7 @@
                       <a href="#">
                           <i class="fa fa-user-circle-o text-secondary"></i></a>
                       <a href="#">
-                          <i class="fa text-secondary fa-shopping-cart"></i>
+                          <i class="fa text-secondary fa-shopping-cart"><b id="addcart"></b></i>
                       </a>
                     </div>
                   </div>
@@ -124,6 +149,7 @@
                           <h6 class="card-text font-weight-bold">
                             from $32.99
                           </h6>
+                          <button class="btn-info">Add to Cart</button>
                         </div>
                       </div>
                     </div>
@@ -140,6 +166,7 @@
                           <h6 class="card-text font-weight-bold">
                             $39.99
                           </h6>
+                          <button class="btn-info">Add to Cart</button>
                         </div>
                       </div>
                     </div>
@@ -157,6 +184,7 @@
                           <h6 class="card-text font-weight-bold">
                             $34.99
                           </h6>
+                          <button class="btn-info">Add to Cart</button>
                         </div>
                       </div>
                     </div>
@@ -257,6 +285,10 @@
 
                 
               </div>
+
+            <div class="top" style="display: none;">
+                <a class="totop" href="#">TOP</a>
+            </div>
 
           </main>
 
